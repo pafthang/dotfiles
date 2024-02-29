@@ -1,0 +1,18 @@
+# Disable the startup message
+startup_message off
+# Always start `screen` with UTF-8 enabled (`screen -U`)
+defutf8 on
+# Использовать визуальный сигнал (мигание экрана) вместо писка динамика
+vbell on
+# Set scrollback buffer 1000 | 32 0000
+defscrollback 1000
+# Session reconnect
+autodetach on
+# Open Login-shell
+shell -$SHELL
+# Active scroll on xterm
+termcapinfo xterm* ti@:te@
+# Magic string
+shelltitle '$ |sh'
+# Status string
+hardstatus alwayslastline "%{+b wk} %c $LOGNAME@%H %=[ %w ] "

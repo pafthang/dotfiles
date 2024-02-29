@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+# Homebrew
+if is-executable brew; then
+	BREW_PREFIX=$(brew --prefix)
+	if [[ -r "${BREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]
+	then
+		source "${BREW_PREFIX}/etc/profile.d/bash_completion.sh"
+	else
+		for COMPLETION in "${BREW_PREFIX}/etc/bash_completion.d/"*
+		do
+			[[ -r "${COMPLETION}" ]] && source "${COMPLETION}"
+		done
+	fi
+fi
+
+# npm (https://docs.npmjs.com/cli/completion)
+if is-executable npm; then
+  . <(npm completion)
+fi
+
+# fnm
+if is-executable fnm; then
+  . <(fnm completions)
+fi
+
+# Git
+if is-executable git; then
+	curl -fsSL "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash" | $SHELL
+fi

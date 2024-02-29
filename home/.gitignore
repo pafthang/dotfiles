@@ -1,0 +1,21 @@
+
+# "ignore" directories (because I'm that kind of person)
+ignore/
+
+# Node.js
+node_modules/
+
+# Python
+*.pyc
+
+# Linux
+*.deb
+*.rpm
+
+# Windows
+desktop.ini
+
+# Random stuff I don't want
+*.old
+*.tmp
+*.iso
