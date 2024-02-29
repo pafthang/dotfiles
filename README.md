@@ -22,7 +22,14 @@ Todo:
 - Backup symlinks + user need to choose not to symlink.
 - Issue with installing VS Code extenetion.
 
-Workaround with N issue:
+To install nodejs use n package manager (in example version 21 will be installed):
+
+```Shell
+n 21
+```
+
+Workaround with n issue:
+
 ```Shell
 # make cache folder (if missing) and take ownership
 sudo mkdir -p /usr/local/n
@@ -34,6 +41,32 @@ sudo chown -R $(whoami) /usr/local/bin /usr/local/lib /usr/local/include /usr/lo
 ```
 
 Install bun script:
+
 ```Shell
 curl -fsSL https://bun.sh/install | bash
 ```
+
+After installation git config:
+1. Change git global settings:
+
+```Shell
+git config --global user.name "your_name"
+git config --global user.email "your_email@example.com"
+```
+
+2. Check global setting in home/.gitconfig
+
+3. Generate ssh cert (just press enter on any question):
+
+```Shell
+ssh-keygen -t ed25519 -C "your_email@example.com"
+```
+
+4. Copy cert info to put it in github settings page:
+
+```Shell
+cat ~/.ssh/id_ed25519.pub
+```
+
+5. Paste it in github.com -> Settings -> Access -> SSH and GPG keys -> New SSH key or Add SSH key 
+
